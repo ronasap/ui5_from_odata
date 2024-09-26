@@ -1,0 +1,110 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZST7_ODATA_CUSTOMER_SRV" xml:lang="en" sap:schema-version="1">
+            <Annotation
+                xmlns="http://docs.oasis-open.org/odata/ns/edm" Term="Core.SchemaVersion" String="1.0.0"/>
+                <EntityType Name="zst7c_sales_hdr1Type" sap:label="Header consumption view" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="sd_key"/>
+                    </Key>
+                    <Property Name="sd_key" Type="Edm.Guid" Nullable="false" sap:label="Key" sap:heading=""/>
+                    <Property Name="doc_date" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Document Date" sap:quickinfo="Field of type DATS"/>
+                    <Property Name="name" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Desription" sap:quickinfo="Character Field of Length 12"/>
+                    <Property Name="catg" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Document Category" sap:quickinfo="Component of the Version Number"/>
+                    <Property Name="order_type" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Order Type" sap:quickinfo="Undefined range (can be used for patch levels)"/>
+                    <Property Name="order_reason" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Order Reason" sap:quickinfo="3-Byte field"/>
+                    <Property Name="net_value" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency" sap:label="Total Amount" sap:quickinfo="8(15)-character value field with 2 decimal places"/>
+                    <Property Name="currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                    <NavigationProperty Name="to_salesitm" Relationship="ZST7_ODATA_CUSTOMER_SRV.assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" FromRole="FromRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" ToRole="ToRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E"/>
+                </EntityType>
+                <EntityType Name="zst7c_sales_itm1Type" sap:label="consumption view for sales item" sap:content-version="1">
+                    <Key>
+                        <PropertyRef Name="itm_key"/>
+                    </Key>
+                    <Property Name="itm_key" Type="Edm.Guid" Nullable="false" sap:label="Key" sap:heading=""/>
+                    <Property Name="parentkey" Type="Edm.Guid" sap:label="Key" sap:heading=""/>
+                    <Property Name="mat_num" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Material Number" sap:quickinfo="Character field of length 40"/>
+                    <Property Name="mat_grp" Type="Edm.String" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group" sap:quickinfo="Character field of 9 digits"/>
+                    <Property Name="itm_type" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Item Type" sap:quickinfo="Single-Character Flag"/>
+                    <Property Name="item_value" Type="Edm.Decimal" Precision="16" Scale="3" sap:unit="currency" sap:label="Amount" sap:quickinfo="Net Value of the Order Item in Document Currency"/>
+                    <Property Name="currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="SD Document Currency" sap:semantics="currency-code"/>
+                    <NavigationProperty Name="to_saleshdr" Relationship="ZST7_ODATA_CUSTOMER_SRV.assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" FromRole="ToRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" ToRole="FromRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E"/>
+                </EntityType>
+                <Association Name="assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" sap:content-version="1">
+                    <End Type="ZST7_ODATA_CUSTOMER_SRV.zst7c_sales_hdr1Type" Multiplicity="1" Role="FromRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E">
+                        <OnDelete Action="Cascade"/>
+                    </End>
+                    <End Type="ZST7_ODATA_CUSTOMER_SRV.zst7c_sales_itm1Type" Multiplicity="*" Role="ToRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E"/>
+                    <ReferentialConstraint>
+                        <Principal Role="FromRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E">
+                            <PropertyRef Name="sd_key"/>
+                        </Principal>
+                        <Dependent Role="ToRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E">
+                            <PropertyRef Name="parentkey"/>
+                        </Dependent>
+                    </ReferentialConstraint>
+                </Association>
+                <EntityContainer Name="ZST7_ODATA_CUSTOMER_SRV_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                    <EntitySet Name="zst7c_sales_hdr1" EntityType="ZST7_ODATA_CUSTOMER_SRV.zst7c_sales_hdr1Type" sap:content-version="1"/>
+                    <EntitySet Name="zst7c_sales_itm1" EntityType="ZST7_ODATA_CUSTOMER_SRV.zst7c_sales_itm1Type" sap:content-version="1"/>
+                    <AssociationSet Name="assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" Association="ZST7_ODATA_CUSTOMER_SRV.assoc_9AF9378DB27A9962A181D6EBEFEB9E3E" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                        <End EntitySet="zst7c_sales_hdr1" Role="FromRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E"/>
+                        <End EntitySet="zst7c_sales_itm1" Role="ToRole_assoc_9AF9378DB27A9962A181D6EBEFEB9E3E"/>
+                    </AssociationSet>
+                </EntityContainer>
+                <Annotations
+                    xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZST7_ODATA_CUSTOMER_SRV.ZST7_ODATA_CUSTOMER_SRV_Entities">
+                    <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                </Annotations>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZST7_ODATA_CUSTOMER_SRV/$metadata"/>
+                    <atom:link
+                        xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZST7_ODATA_CUSTOMER_SRV/$metadata"/>
+                    </Schema>
+                </edmx:DataServices>
+            </edmx:Edmx>
